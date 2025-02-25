@@ -2,12 +2,13 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 from tensorflow.keras import layers, models
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from data_preprocessing_CNN import load_and_preprocess_data
+from data_preprocessing_CNN import load_and_preprocess_data_cnn
 
 # Caricamento dei dati MNIST
-train_images, train_labels, test_images, test_labels = load_and_preprocess_data()
+# (train_images, train_labels), (test_images, test_labels) = load_and_preprocess_data_cnn()
+(train_images, train_labels), (test_images, test_labels) = tf.keras.datasets.mnist.load_data()
 
-# Normalizzazione e Reshape per CNN
+# Reshape per CNN
 train_images = train_images.reshape(-1, 28, 28, 1) / 255.0
 test_images = test_images.reshape(-1, 28, 28, 1) / 255.0
 
