@@ -25,3 +25,6 @@ model.fit(train_images, train_labels, epochs=5)
 # Valutazione del modello
 test_loss, test_acc = model.evaluate(test_images, test_labels)
 print(f"Test accuracy: {test_acc}")
+
+# Salvataggio del modello
+model.save('mnist_model.h5')  # Salva il modello in un file .h5
