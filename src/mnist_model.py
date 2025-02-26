@@ -1,13 +1,14 @@
 import tensorflow as tf
 from tensorflow.keras import layers, models
-
+from data_preprocessing import load_and_preprocess_data
 
 # Caricamento dei dati MNIST
-(train_images, train_labels), (test_images, test_labels) = tf.keras.datasets.mnist.load_data()
+(train_images, train_labels), (test_images, test_labels) = load_and_preprocess_data()
+# (train_images, train_labels), (test_images, test_labels) = tf.keras.datasets.mnist.load_data()
 
 # Normalizzazione delle immagini
-train_images = train_images / 255.0
-test_images = test_images / 255.0
+# train_images = train_images / 255.0
+# test_images = test_images / 255.0
 
 # Creazione del modello
 model = models.Sequential([
@@ -28,4 +29,4 @@ test_loss, test_acc = model.evaluate(test_images, test_labels)
 print(f"Test accuracy: {test_acc}")
 
 # Salvataggio del modello
-model.save('mnist_model_OLD.h5')  # Salva il modello in un file .h5
+model.save('data/mnist_model.h5')  # Salva il modello in un file .h5
